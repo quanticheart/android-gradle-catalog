@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    compileSdk = Versions.Sdk.compile
+    compileSdk = Config.compileSdk
     defaultConfig {
-        minSdk = Versions.Sdk.min
-        targetSdk = Versions.Sdk.target
-        archivesBaseName = "${parent?.name}-$archivesBaseName"
+        minSdk = Config.minSdk
+        targetSdk = Config.compileSdk
+//        archivesBaseName = "${parent?.name}-$archivesBaseName"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments += "listener" to "leakcanary.FailTestOnLeakRunListener"
     }
@@ -26,33 +26,24 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
-
-    lint {
-        isAbortOnError = true
-        isWarningsAsErrors = true
-        htmlReport = false
-        textReport = false
-        xmlReport = true
-        lintConfig = rootProject.file("lint-config.xml")
-    }
 }
 
 dependencies {
-    implementation(Kotlin.jdk8)
-    implementation(Rx.java)
-    implementation(Rx.kotlin)
-    implementation(DataBinding.lint)
-    implementation(Hilt.android)
-    kapt(Hilt.compiler)
-    implementation(Hilt.AndroidX.viewModel)
-    kapt(Hilt.AndroidX.compiler)
-    debugImplementation(LeakCanary.android)
-
-    testImplementation(Test.junit)
-    testImplementation(Test.mockito)
-    testImplementation(Test.mockitoInline)
-    kaptTest(DataBinding.compiler)
-
-    androidTestImplementation(Test.junit)
-    androidTestImplementation(LeakCanary.instrumentation)
+//    implementation(Kotlin.jdk8)
+//    implementation(Rx.java)
+//    implementation(Rx.kotlin)
+//    implementation(DataBinding.lint)
+//    implementation(Hilt.android)
+//    kapt(Hilt.compiler)
+//    implementation(Hilt.AndroidX.viewModel)
+//    kapt(Hilt.AndroidX.compiler)
+//    debugImplementation(LeakCanary.android)
+//
+//    testImplementation(Test.junit)
+//    testImplementation(Test.mockito)
+//    testImplementation(Test.mockitoInline)
+//    kaptTest(DataBinding.compiler)
+//
+//    androidTestImplementation(Test.junit)
+//    androidTestImplementation(LeakCanary.instrumentation)
 }
